@@ -80,7 +80,7 @@ function App() {
       </main>
       
       <footer className="App-footer">
-        <p><a href="https://github.com/awhipp/atr-montecarlo" target="_blank">GitHub</a></p>
+        <p><a href="https://github.com/awhipp/atr-montecarlo" target="_blank" rel="noreferrer">GitHub</a></p>
       </footer>
     </div>
   );
