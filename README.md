@@ -2,6 +2,10 @@
 
 This application simulates potential price movements using Monte Carlo simulation based on Average True Range (ATR). It helps traders and investors estimate the probability of a price reaching specific targets within a given timeframe.
 
+[![Lint Code](https://github.com/awhipp/atr-montecarlo/actions/workflows/lint.yml/badge.svg)](https://github.com/awhipp/atr-montecarlo/actions/workflows/lint.yml)
+
+[![Dependabot Updates](https://github.com/awhipp/atr-montecarlo/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/awhipp/atr-montecarlo/actions/workflows/dependabot/dependabot-updates)
+
 ## What This Tool Does
 
 This simulator allows you to:
