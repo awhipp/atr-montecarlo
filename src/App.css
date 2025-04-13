@@ -5,6 +5,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
 }
 
 .App-logo {
@@ -107,8 +108,14 @@
   margin-top: 5px;
 }
 
+.form-group small.mobile-notice {
+  color: #ff6b6b;
+  margin-top: 5px;
+  display: none; /* Hide by default, show only on mobile */
+}
+
 button.submit-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -154,13 +161,13 @@ button.submit-button:disabled {
 }
 
 .bound-info span:first-child {
-  border-left: 3px solid #2196F3;
-  color: #2196F3;
+  border-left: 3px solid #2196f3;
+  color: #2196f3;
 }
 
 .bound-info span:last-child {
-  border-left: 3px solid #F44336;
-  color: #F44336;
+  border-left: 3px solid #f44336;
+  color: #f44336;
 }
 
 /* Results Styles */
@@ -193,12 +200,12 @@ button.submit-button:disabled {
 .result-card .result-value {
   font-size: 2rem;
   font-weight: 700;
-  color: #2196F3;
+  color: #2196f3;
   margin: 10px 0;
 }
 
 .result-card.probability .result-value {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .result-detail {
@@ -226,7 +233,7 @@ button.submit-button:disabled {
 .stat-value {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #2196F3;
+  color: #2196f3;
 }
 
 .interpretation {
@@ -235,12 +242,12 @@ button.submit-button:disabled {
   padding: 20px;
   background-color: #f5f8ff;
   border-radius: 6px;
-  border-left: 4px solid #2196F3;
+  border-left: 4px solid #2196f3;
 }
 
 .interpretation h3 {
   margin-top: 0;
-  color: #2196F3;
+  color: #2196f3;
 }
 
 .interpretation p {
@@ -253,12 +260,113 @@ button.submit-button:disabled {
   .simulation-form {
     grid-template-columns: 1fr;
   }
-  
+
   .App-header {
-    padding: 20px 10px;
+    padding: 15px 10px;
   }
-  
+
   .App-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .App-description {
+    font-size: 1rem;
+  }
+
+  .App-main {
+    padding: 0 10px 30px;
+  }
+
+  .simulation-form-container,
+  .simulation-results {
+    padding: 20px 15px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 16px; /* Better for mobile touch targets */
+  }
+
+  .result-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    height: 300px; /* Shorter chart on mobile */
+    touch-action: pan-y; /* Allow vertical panning but not horizontal to prevent page scrolling issues */
+  }
+
+  .result-card .result-value {
+    font-size: 1.6rem;
+  }
+
+  .interpretation {
+    padding: 15px;
+  }
+
+  .interpretation ul {
+    padding-left: 20px;
+  }
+
+  .interpretation ul li {
+    margin-bottom: 8px;
+  }
+
+  .time-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  button.submit-button {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .bound-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bound-info span {
+    width: 100%;
+  }
+
+  .form-group small.mobile-notice {
+    display: block; /* Show on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .App-description {
+    font-size: 0.9rem;
+    margin: 10px auto 0;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .form-group small {
+    font-size: 0.75rem;
+  }
+}
+
+/* Touch-friendly styles */
+@media (hover: none) {
+  /* Better tap targets for touch devices */
+  button.submit-button {
+    min-height: 48px;
+  }
+
+  input[type='number'] {
+    min-height: 44px;
   }
 }

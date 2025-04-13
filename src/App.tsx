@@ -28,10 +28,10 @@ function App() {
     days: 0,
     iterations: 0,
   });
-  
+
   const [simulationResult, setSimulationResult] = useState<SimulationResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const handleSimulationSubmit = (params: {
     currentPrice: number;
     atr: number;
@@ -41,7 +41,7 @@ function App() {
   }) => {
     setIsLoading(true);
     setSimulationParams(params);
-    
+
     // Use setTimeout to prevent UI from freezing during calculation
     setTimeout(() => {
       const result = runMonteCarloSimulation(params);
@@ -49,27 +49,25 @@ function App() {
       setIsLoading(false);
     }, 0);
   };
-  
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Montecarlo Simulated ATR Price Calculator</h1>
         <p className="App-description">
-          Estimate the price probability of hitting either side of a range using Monte Carlo simulation.
+          Estimate the price probability of hitting either side of a range using Monte Carlo
+          simulation.
         </p>
       </header>
-      
+
       <main className="App-main">
         <div className="form-section">
-          <SimulationForm 
-            onSubmit={handleSimulationSubmit}
-            isLoading={isLoading}
-          />
+          <SimulationForm onSubmit={handleSimulationSubmit} isLoading={isLoading} />
         </div>
-        
+
         {simulationResult && (
           <div className="results-section">
-            <SimulationResults 
+            <SimulationResults
               result={simulationResult}
               currentPrice={simulationParams.currentPrice}
               rangePrice={simulationParams.rangePrice}
@@ -78,9 +76,13 @@ function App() {
           </div>
         )}
       </main>
-      
+
       <footer className="App-footer">
-        <p><a href="https://github.com/awhipp/atr-montecarlo" target="_blank" rel="noreferrer">GitHub</a></p>
+        <p>
+          <a href="https://github.com/awhipp/atr-montecarlo" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </p>
       </footer>
     </div>
   );
